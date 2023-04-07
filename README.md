@@ -28,5 +28,5 @@ if [[ "$pcs_status" == "$local_node" ]]; then
   echo "Files copied successfully to $remote_host"
 
 else
-  echo "crond is not running on the local node - files not copied"
+  echo "Files not copied"
 fi
