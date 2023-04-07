@@ -14,13 +14,16 @@ else
 fi
 
 # Define the location to copy files to on the remote host
-remote_dir="/var/spool/cron/apache"
+remote_dir="/var/spool/cron/"
+
+# Define the file to copy files to on the remote host
+remote_file="apache"
 
 # Check if crond is running on the local node
 if [[ "$pcs_status" == "$local_node" ]]; then
 
   # Use rsync to copy only updated files from /var/spool/cron/apache to the remote host
-  rsync -avz --update /var/spool/cron/apache "$remote_host:$remote_dir"
+  rsync -avz --update $remote_dir$remote_file "$remote_host:$remote_dir"
 
   echo "Files copied successfully to $remote_host"
 
