@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check the Pacemaker status
-pcs_status=$(pcs status | grep crond | awk '{print $NF}')
+pcs_status=$(pcs status | grep crond | grep Started | '{print $NF}')
 
 # Get the hostname of the local node
 local_node=$(hostname)
